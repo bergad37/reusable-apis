@@ -26,9 +26,10 @@ app.post('/send-email', async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: `"Website Contact" <${email}>`,
-      to: `${process.env.EMAIL_USER}`,
-      subject: subject,
+      from: `"Website Contact" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
+      to: process.env.EMAIL_USER,
+      subject,
       html: `
     <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
   <h2 style="color: #2c3e50; margin-bottom: 10px;">📩 New Client Inquiry</h2>
