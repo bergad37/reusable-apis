@@ -1,17 +1,9 @@
 {
   "version": 2,
-  "functions": {
-    "api/send-email.js": {
-      "runtime": "nodejs20.x",
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
+  "builds": [
+    { "src": "api/send-email.js", "use": "@vercel/node" }
+  ],
   "routes": [
-    {
-      "src": "/send-email",
-      "dest": "/api/send-email"
-    }
+    { "src": "/send-email", "dest": "api/send-email.js" }
   ]
 }
-
